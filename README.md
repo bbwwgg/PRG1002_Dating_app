@@ -23,7 +23,7 @@ Agile project management breaks a project into smaller, manageable phases called
 
 Cycle of agile methodology is demonstrated as follow:
 
-![Agile method cycle](image.png)
+![Agile method cycle](./images/image.png)
 
 This method requires teamwork, adaptability, and customer input to deliver consistent value throughout the project’s progression.
 
@@ -78,9 +78,9 @@ Example: in a Kanban board, Columns are set up as: To Do → In Progress → Cod
 
 Continuous improvement is easier with visible data. Two standard Kanban reports help spot and remove blockers:
 	•	Control chart: shows each issue item’s cycle time and the rolling average.
-  ![Kanban control chart example](image-1.png)
+  ![Kanban control chart example](./images/image-1.png)
 	•	Cumulative flow diagram (CFD): shows how many items sit in each state. A growing band in “In Progress” or “In Review” signals a blocker; unresolved, these can lead to painful merge/integration issues later.
-  ![Kanban flow diagram example](image-2.png)
+  ![Kanban flow diagram example](./images/image-2.png)
 - Continuous delivery (CD) and CI/CD:
 
 Continuous delivery (CD) means shipping updates to customers frequently. Continuous integration (CI) is the practice of automatically building and testing small code changes throughout the day. Together, CI and CD form the CI/CD pipeline, core to DevOps for releasing faster without sacrificing quality.
