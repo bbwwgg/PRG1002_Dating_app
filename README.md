@@ -14,9 +14,6 @@
 # 2. Software Development Methodologies
 ## 2.1. Project management 
 
-*Provides a THOROUGH explanation of a project management methodology, with MULTIPLE diagrams and AT LEAST ONE example or
-scenario of how that methodology would be used*
-
 In this project, Agile methodology will be used. This methodology is an iteractive approach to manage and execute product development projects.
 
 Agile project management breaks a project into smaller, manageable phases called sprints. Each sprint follows a cycle of planning, execution, and review, enabling teams to quickly adjust to changes and steadily refine the product. This means after every sprint, teams review, reflect and look back to see if there was anything that could be improved so they can adjust their strategy for the next sprint.
@@ -91,5 +88,32 @@ Specifically, Kanban will be applied in this Dating Application project as follo
 - Columns: To Do - On Hold - In Progress - Done
 Initially, main tasks will be listed in To Do columns, includes: Design UI, 
 <add more information here when have a better idea about app architecture >
+
+# 3. User Stories
+The Message application addresses following user stories:
+ 
+**Persona 1: Everyday User (Alex, 27, office workers)**
+
+- As Alex, I want to create an account with a username and password so that I can securely log in and access my conversations from any device.
+- As Alex, I want to search for my friends by username so I can quickly connect with people I already know. 
+- As Alex,, I want to send and receive instant messages so I can stay in touch with my friends in real time.
+- As Alex, I want to make new friends by getting to know them through different ways. I want to play mini-games with them in the chat so that we have more topics to talk about. 
+
+*Reason*: With busy life working as full-time office worker, Alex does not have much time to meet his friends and family. Therefore, he needs a way to stay connected with friends in a simple and secure way.
+
+**Persona 2: Casual Gamer (Nick, 22, student)**
+
+- As Nick, I want to challenge my friends to play mini-games like tic-tac-toe in chat so that I can have fun while messaging without leaving the app.
+- As Nick, I want the mini-games to be turn-based within the chat thread so that I can play at my own pace while still continuing the conversation.
+
+*Reason*: Adding entertainment value and reducing boredom during casual chats.
+
+**Persona 3: Privacy-Conscious Professional (Alice, 35, Software developer)**
+
+- As Alice, I want to log in with a secure username and password so I know my private conversations are protected.
+- As Alice, I want to see when a message has been delivered and read so I can confirm whether important information has reached my client or colleague.
+- As Alice, I want the option to block or remove users so I can control who is able to contact me.
+
+*Reason*: Alice focus on privacy and security of an application. Therefore, maintaining professionalism, protecting privacy, and ensuring reliability in communication is required for the Message application. 
 
 
