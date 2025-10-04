@@ -45,9 +45,11 @@ Software teams can gather real user feedback fast (e.g., from cloud apps). The t
 The diagram below explains how Agile methodology will be applied in this Dating Application project:
 
 <Add a diagram here>
+Planning (tools, packages required, ERD, UI design ) -> Set up file strucure -> Build CRUD API, middlewares, authentication, authorisation for: log in, set up profile, connect to other uses, messaging-> Build front end (user interface) -> test -> release -> feedback -> issues solved -> plan for game feature -> implement mini game API into messaging chat
+
 
 For example:
-- When development of main features of the app is completed and tested, app will be deployed and released to the market. These main features include: user setting up profile and their interests, displaying other users of interests, users connecting to each other and messaging. After releasing, user feedbacks will be collected based on rating and reviews on app store, and app will be upgraded or debugged based on those reviews. New feature such as game playing in the chat window will be developed with consideration of those feedbacks as well. 
+- When development of main features of the app is completed and tested, app will be deployed and released to the market. These main features include: user setting up profile, users connecting to each other and messaging. After releasing, user feedbacks will be collected based on rating and reviews on app store, and app will be upgraded or debugged based on those reviews. New feature such as game playing in the chat window will be developed with consideration of those feedbacks as well.
 
 
 ## 2.2. Task management
@@ -85,8 +87,8 @@ Continuous delivery (CD) means shipping updates to customers frequently. Continu
 Kanban aligns well with CD because both emphasise just-in-time, single-piece flow of value. By streamlining how work moves through the system, Kanban helps teams deliver changes to users quickly, increasing speed to market and product competitiveness.
 
 Specifically, Kanban will be applied in this Dating Application project as following examples:
-- Columns: To Do - On Hold - In Progress - Done
-Initially, main tasks will be listed in To Do columns, includes: Design UI, 
+- Columns: To Do - On Hold - In Progress - Done.
+Initially, main tasks will be listed in To Do columns, includes: Design UI, Review UI design, 
 <add more information here when have a better idea about app architecture >
 
 # 3. User Stories
@@ -115,5 +117,61 @@ The Message application addresses following user stories:
 - As Alice, I want the option to block or remove users so I can control who is able to contact me.
 
 *Reason*: Alice focus on privacy and security of an application. Therefore, maintaining professionalism, protecting privacy, and ensuring reliability in communication is required for the Message application. 
+
+
+# 4. Ethical Principles
+The application adheres to following main ethical priciples
+## 4.1. The Web should work for everyone
+
+The messaging app will be designed to be accessible, inclusive, and usable by people with different abilities, devices, and technical literacy levels, by implementing following features and tools
+- The user interface is designed and built for various devices: various types of phone, tablet, laptop and desktop. 
+
+  Tools to be used: make wireframe using *Balsamiq,  Figma*
+- Provide alt-text for profile images and icons
+- Use i18n frameworks such as *i18next* to manage translations in Javascript. 
+- Optimize assets for low-bandwidth environments by serving compressed images
+## 4.2. Web applications should respect a user's privacy and security
+Given that the app handles personal data (profiles, private conversations, and gameplay activity), security and privacy are important requirements.
+- authentication to be applied for log in feature using *AuthO*, including:
+  - hash, salt and apply jwt for user password to ensure security for user log in details. hash and salt is implemented using *bcryt* package, jwt is applied using *jsonwebtoken*. 
+  - multi-factor authentication to protect user account from being hacked. 
+- authorisation to be applied for messaging and viewing profile feature using *AuthO*, including:
+  - allow user to make privacy setting on who can view their profile, dividing in following settings. In GET requests to profile pages, the user profile setting and the user making requests are evaluated.
+    - Public profiles: anyone authenticated can view.
+    - Friends-only: only users with friends connection can view.
+    - Private: only the owner can view full details; others see a minimal information (username and “this profile is private”)
+    - Blocked: if A blocks B, neither can view the other’s profile details.
+
+  - Messaging authorisation, with following rules:
+    - only users in friend connection can make direct messages to each others
+    - Only participants can read/send in a conversation.
+    - Blocked relationships deny both send/read.
+
+- Use *helmet* to secure HTTP headers, protect the application from security attacks
+  - only allow content from certain domain to be exchanged in message chat. 
+
+## 4.3. Web applications should work everywhere
+The messaging app will be designed and developed to work across browsers, operating systems, and network conditions. 
+- Deliver a fast, efficient experience even on slower networks and low-spec devices by minimizing loading times, optimizing resources, and improving runtime performance. This can be achieved with:
+  - apply lazy loading for mini-games and chat messages
+  - optimise image size
+  - Asynchronous request handling for chat messages and notifications
+  - performance monitoring the web app using *WebPageTest*.
+- App shows consistent behavior across all major browsers (Chrome, Safari, Firefox, Edge) and platforms (Windows, macOS, Android, iOS). This can be achieved with:
+  - Check compatibility of used functions and packages with different browers during development phase, using *CanIUse.com* and MDN Compatibility Data  
+  - Test in multiple web browsers using *BrowserStack*
+
+## 4.4. Web developers should be considerate of their peers
+The messaging app will be built and maintained in a way that promotes collaboration, clarity, respect. The development environment and team culture will follow best practices in documentation, testing, version control, and community engagement to ensure that all contributors can work efficiently and collaboratively. 
+
+- Comments and code documentation are maintained throughout the development and kept up to date to make the codebase easy to understand, maintain, and extend by future developers.
+This can be achieved with:
+  - Inline comments for each module and function, explaining purpose, logic, and expected parameter, using *JSDoc*
+  - Descriptive naming conventions for varibale functions, and classes.
+  - Mainain a detailed README.md and CONTRIBUTING.md file outlining detailed setup steps (e.g. install dependencies), testing commands and code expectations. 
+-  Maintain a consistent, readable codebase and ensure reliability through automated testing. This can be achieved with:
+  - Ensure consistent syntax and code style accross the project, using *Prettier*.
+  - Build automated testing using unit tests with *Jest*.
+- Using structure version control with *Github*, and maintain clear conventional commit messages. Also use CODEOWNER to assign reviewers automatically for specific files and modules. 
 
 
