@@ -1,14 +1,11 @@
-# DEV1002_Dating_app
+# DEV1002_Message_app
 
 # Features
 - User's and user profile.
 - Edit those profiles
-- View other users based on interest filters
-- Log in
-- Message other users with online simple games
-- match with users
-- see who liked their user
-- Interests, filter by interests 
+- Connect to other users
+- Real-time messaging other privately or in group chat
+- Integration of mini-games into chat
 
 
 # 2. Software Development Methodologies
@@ -24,7 +21,8 @@ Cycle of agile methodology is demonstrated as follow:
 
 This method requires teamwork, adaptability, and customer input to deliver consistent value throughout the project’s progression.
 
-**Benefits of Agile methodology:**
+### Benefits of Agile methodology:
+
 Agile is most common in app and software projects because software changes a lot in short time, and the product needs to change with it.
 
 That’s why linear plans like Waterfall don’t fit as well. Instead, our teams pick Agile for a few big reasons:
@@ -42,21 +40,20 @@ Agile promotes frequent, direct communication and breaking down silos. Even with
 Software teams can gather real user feedback fast (e.g., from cloud apps). The team can collaborate with customers to understand their needs, then prioritizing the right features that focus on customers' satisfaction. When those needs change, the software team can use Agile method to change to another direction for the software, or develop new projects. 
 
 
-The diagram below explains how Agile methodology will be applied in this Dating Application project:
+The diagram below explains how Agile methodology will be applied in this Messaging Application project:
 
-<Add a diagram here>
-Planning (tools, packages required, ERD, UI design ) -> Set up file strucure -> Build CRUD API, middlewares, authentication, authorisation for: log in, set up profile, connect to other uses, messaging-> Build front end (user interface) -> test -> release -> feedback -> issues solved -> plan for game feature -> implement mini game API into messaging chat
+![diagram about how agile applied in the project](./images/agile_diagram.jpg)
 
-
-For example:
+For examples:
 - When development of main features of the app is completed and tested, app will be deployed and released to the market. These main features include: user setting up profile, users connecting to each other and messaging. After releasing, user feedbacks will be collected based on rating and reviews on app store, and app will be upgraded or debugged based on those reviews. New feature such as game playing in the chat window will be developed with consideration of those feedbacks as well.
-
+- Login system is one of prioritised features in "To Do" column. The backend devloper picks the features, moves it to "In Progress" column. This feature will then be broken down into various aspects. The developer will work on this from plan, design, develop, test, review and deploy. The login feature is then considered completed, presented to users to gather feedbacks. 
+- Mini-games integration will be picked up when developers have capacity and no disruption to developing other main features. 
 
 ## 2.2. Task management
 Kanban is selected to be task management methodology for this project. 
 Kanban is a visual framework within Agile project management. It uses a board-based system to track the status of tasks throughout the workflow. Each task is represented by a card, and workflow stages are shown as columns (e.g., Backlog, In Progress, Review, Done). As progress is made, team members move task cards from one column to the next, providing clear visibility into where each task sits in the development process.
 
-**Benefits of Kanban method:**
+### Benefits of Kanban method:
 - Planning flexibility: 
 
 Using Kanban help team members to concentrate on the tasks currently in progress. When a task is finished, the next item is pulled from the backlog. Because only in-progress work is affected, the leader/ product owner can freely reprioritize the backlog without disrupting the team.
@@ -86,10 +83,16 @@ Continuous delivery (CD) means shipping updates to customers frequently. Continu
 
 Kanban aligns well with CD because both emphasise just-in-time, single-piece flow of value. By streamlining how work moves through the system, Kanban helps teams deliver changes to users quickly, increasing speed to market and product competitiveness.
 
-Specifically, Kanban will be applied in this Dating Application project as following examples:
-- Columns: To Do - On Hold - In Progress - Done.
-Initially, main tasks will be listed in To Do columns, includes: Design UI, Review UI design, 
-<add more information here when have a better idea about app architecture >
+Specifically, Kanban will be applied in this Dating Application project as following example:
+
+| Stage         | Task example                | Action                       |
+| :-------------| :------------------------- | :--------------------------- |
+| Backlog       | Add real-time chat feature  |  This feature is prioritized |
+| To Do         | Build log in authentication feature| Task is allocated to developers |
+| In Progress   | Develop ERD       | Developer keep working on developing ERD  |
+| Code Review   |  Peer reviews - authentication feature  | Reviewers comment, team members discussed and approve |
+| Testing       |  Test message sending and receiving feature   | Verify accross devices |
+| Done          |  UI design   | Developer now can start build UI |
 
 # 3. User Stories
 The Message application addresses following user stories:
