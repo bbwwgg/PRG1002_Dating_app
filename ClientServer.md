@@ -1,0 +1,8 @@
+# Client/Server Architecture Explanation  
+
+In this message app project, the app utilizes a client/server architecture that separates the application into two parts that work together for ensure nice and easy user experience. The client is the part users interact with (whether through a web or mobile interface), where they can log in, edit their profile, send or receive messages  and play games with other in real time, whenever the client needs information, like loading a chat or a game, updating a profile, it sends a request to the server. The server is the backend of the app and is responsible for handling all the logic, processing the requests, communicating with the database where all user data, profiles and messages are store and. managing  the user authentication. When the server receives a request, it processes it and sends back the necessary data (JSON format).  
+For messages in real time, the client and server maintain a continuous connection using WebSockets, which allows real-time updates without the need to refresh the page. This structure ensures that users can interact in real time while the server securely manages data and keeps everything synchronized between users.  
+  
+# What is a WebSocket?  
+  
+A **WebSocket** is a communication protocol that open a continuous connection between a website or application and the server. Unlike Web request that need constant request updates, a WebSocket maintains an open connection that ensures new information being displayed immediately without requiring to reload the page enabling instant messages.  
