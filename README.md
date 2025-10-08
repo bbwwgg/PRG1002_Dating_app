@@ -45,8 +45,8 @@ The diagram below explains how Agile methodology will be applied in this Messagi
 ![diagram about how agile applied in the project](./images/agile_diagram.jpg)
 
 For examples:
-- When development of main features of the app is completed and tested, app will be deployed and released to the market. These main features include: user setting up profile, users connecting to each other and messaging. After releasing, user feedbacks will be collected based on rating and reviews on app store, and app will be upgraded or debugged based on those reviews. New feature such as game playing in the chat window will be developed with consideration of those feedbacks as well.
-- Login system is one of prioritised features in "To Do" column. The backend devloper picks the features, moves it to "In Progress" column. This feature will then be broken down into various aspects. The developer will work on this from plan, design, develop, test, review and deploy. The login feature is then considered completed, presented to users to gather feedbacks. 
+- When development of main features of the app is completed and tested, app will be deployed and released to the market. These main features include: user setting up profile, users connecting to each other and messaging. After releasing, user feedbacks will be collected based on rating and reviews on app store, and app will be upgraded or debugged based on those reviews. New feature such as game playing will be developed with consideration of those feedbacks as well.
+- Login system is one of prioritised features in "To Do" column. The backend developer picks the features, moves it to "In Progress" column. This feature will then be broken down into various aspects. The developer will work on this from plan, design, develop, test, review and deploy. The login feature is then considered completed, presented to users to gather feedbacks. 
 - Mini-games integration will be picked up when developers have capacity and no disruption to developing other main features. 
 
 ## 2.2. Task management
@@ -73,10 +73,16 @@ Example: in a Kanban board, Columns are set up as: To Do → In Progress → Cod
 - Visual metrics:
 
 Continuous improvement is easier with visible data. Two standard Kanban reports help spot and remove blockers:
-	•	Control chart: shows each issue item’s cycle time and the rolling average.
+
+  *Control chart*: shows each issue item’s cycle time and the rolling average.
+
   ![Kanban control chart example](./images/image-1.png)
-	•	Cumulative flow diagram (CFD): shows how many items sit in each state. A growing band in “In Progress” or “In Review” signals a blocker; unresolved, these can lead to painful merge/integration issues later.
+  *(Source: https://www.atlassian.com/agile/kanban)*
+
+*Cumulative flow diagram (CFD)*: shows how many items sit in each state. A growing band in “In Progress” or “In Review” signals a blocker; unresolved, these can lead to painful merge/integration issues later.
+
   ![Kanban flow diagram example](./images/image-2.png)
+   *(Source: https://www.atlassian.com/agile/kanban)*
 - Continuous delivery (CD) and CI/CD:
 
 Continuous delivery (CD) means shipping updates to customers frequently. Continuous integration (CI) is the practice of automatically building and testing small code changes throughout the day. Together, CI and CD form the CI/CD pipeline, core to DevOps for releasing faster without sacrificing quality.
@@ -178,12 +184,96 @@ This can be achieved with:
 - Using structure version control with *Github*, and maintain clear conventional commit messages. Also use CODEOWNER to assign reviewers automatically for specific files and modules. 
 
 
-# Client/Server Architecture Explanation  
+# 5. App Architecture
+## 5.1. Software Architecture Pattern
+One of common software architecture pattern will be used in this application project is Event-driven architecture. 
+
+Event-Driven Architecture (EDA) is a software design approach where system parts communicate through events—signals that something important has happened, such as a user action or a system change.
+
+Instead of constantly checking for updates, components react to events as they occur. When one component generates an event, others that care about that event can respond immediately. This makes the system real-time, modular, and scalable, since each part can operate independently without tight connections.
+
+That makes EDA suitable for Messaging application, which requires real-time data transfer. 
+
+The diagram below shows how EDA works. 
+
+![Event-driven architecture diagram](images/image-5.png)
+*(Source: https://www.researchgate.net/figure/Event-Driven-Communication-Decoupled-Interactions-Event-publishers-often-do-not_fig2_335234337)*
+
+Below diagram shows publisher/subscriber 
+
+Below diagram shows an example of event-driven architecture of e-commerce website:
+![Event-Driven Architecture of E-Commerce Site](./images/image-3.png)
+*(Source: https://www.geeksforgeeks.org/system-design/event-driven-architecture-system-design/)*
+
+Another example is: implementation of EDA in an online ordering system where users are notified when their order is placed. Below is the programming example of this system in Python, includes a publisher, an event bus, and a subscriber. 
+```python
+# Event Bus
+class EventBus:
+    subscribers = {}
+
+    @classmethod
+    def subscribe(cls, event_type, subscriber):
+        if event_type not in cls.subscribers:
+            cls.subscribers[event_type] = []
+        cls.subscribers[event_type].append(subscriber)
+
+    @classmethod
+    def publish(cls, event_type, data=None):
+        if event_type in cls.subscribers:
+            for subscriber in cls.subscribers[event_type]:
+                subscriber.handle_event(event_type, data)
+
+
+# Event Subscriber
+class OrderNotificationSubscriber:
+    def handle_event(self, event_type, data=None):
+        if event_type == 'OrderPlaced':
+            print(&quot;Notification: Your order with ID {} has been placed!&quot;.format(data['order_id']))
+
+
+# Event Publisher
+class OrderService:
+    def place_order(self, order_id):
+        # Order placement logic here
+        # ...
+
+        # Notify subscribers about the order placement
+        EventBus.publish('OrderPlaced', {'order_id': order_id})
+
+
+# Example Usage
+if __name__ == &quot;__main__&quot;:
+    # Creating instances
+    order_notification_subscriber = OrderNotificationSubscriber()
+    order_service = OrderService()
+
+    # Subscribing the subscriber to the 'OrderPlaced' event
+    EventBus.subscribe('OrderPlaced', order_notification_subscriber)
+
+    # Placing an order
+    order_service.place_order(order_id=123)
+```
+*Source: https://www.geeksforgeeks.org/system-design/event-driven-architecture-system-design/*
+
+- Event Bus:
+
+The EventBus class acts as the main communication channel for events within the system. It lets components subscribe to certain event types and publish events so that subscribers are notified when those events occur.
+- Event Subscriber:
+
+The ```OrderNotificationSubscriber``` class represents a listener that reacts to the OrderPlaced event. In a real-world system, this subscriber might handle tasks like sending notifications, confirmation emails, or triggering other related processes.
+- Event Publisher:
+
+The ```OrderService``` class handles creating orders. Once an order is successfully placed, it publishes an OrderPlaced event through the EventBus to alert all subscribers that the event has occurred.
+- Example Usage:
+
+In practice, the subscriber registers with the event bus using ```EventBus.subscribe``` to listen for the ```OrderPlaced``` event. When an order is created via ```order_service.place_order```, the event is published, and the subscriber’s handle_event method is automatically triggered to perform its assigned action.
+## 5.2. Client/Server Architecture Explanation  
     
 In this message app project, the app utilizes a client/server architecture that separates the application into two parts that work together for ensure nice and easy user experience. The client is the part users interact with (whether through a web or mobile interface), where they can log in, edit their profile, send or receive messages  and play games with other in real time, whenever the client needs information, like loading a chat or a game, updating a profile, it sends a request to the server. The server is the backend of the app and is responsible for handling all the logic, processing the requests, communicating with the database where all user data, profiles and messages are store and. managing  the user authentication. When the server receives a request, it processes it and sends back the necessary data (JSON format).  
 For messages in real time, the client and server maintain a continuous connection using WebSockets, which allows real-time updates without the need to refresh the page. This structure ensures that users can interact in real time while the server securely manages data and keeps everything synchronized between users.  
   
-# What is a WebSocket?    
+### What is a WebSocket?    
 A **WebSocket** is a communication protocol that open a continuous connection between a website or application and the server. Unlike Web request that need constant request updates, a WebSocket maintains an open connection that ensures new information being displayed immediately without requiring to reload the page enabling instant messages.  
+
 
 
