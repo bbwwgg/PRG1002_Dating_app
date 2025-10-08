@@ -11,7 +11,7 @@
 # 2. Software Development Methodologies
 ## 2.1. Project management 
 
-In this project, Agile methodology will be used. This methodology is an iteractive approach to manage and execute product development projects.
+In this project, Agile methodology will be used. This methodology is an interactive approach to manage and execute product development projects.
 
 Agile project management breaks a project into smaller, manageable phases called sprints. Each sprint follows a cycle of planning, execution, and review, enabling teams to quickly adjust to changes and steadily refine the product. This means after every sprint, teams review, reflect and look back to see if there was anything that could be improved so they can adjust their strategy for the next sprint.
 
@@ -56,7 +56,7 @@ Kanban is a visual framework within Agile project management. It uses a board-ba
 ### Benefits of Kanban method:
 - Planning flexibility: 
 
-Using Kanban help team members to concentrate on the tasks currently in progress. When a task is finished, the next item is pulled from the backlog. Because only in-progress work is affected, the leader/ product owner can freely reprioritize the backlog without disrupting the team.
+Using Kanban help team members to concentrate on the tasks currently in progress. When a task is finished, the next item is pulled from the backlog. Because only in-progress work is affected, the leader/ product owner can freely reprioritise the backlog without disrupting the team.
 
 By keeping the highest-priority items at the top of the backlog, the team members can confidently pull the next task from backlog and consistently deliver the most value for the project. 
 
@@ -66,7 +66,7 @@ Cycle time is the duration from when work starts to when it ships. By reducing c
 
 - Fewer bottlenecks:
 
-in a team, tem mmultitasking and context switching between team members can slow progress. Kanban can help to control this with work-in-progress (WIP) limits, with a set limit of number of tasks to be in WTP column. This practice helps to reveal where work flow is stuck and requires focus. 
+in a team, tem multitasking and context switching between team members can slow progress. Kanban can help to control this with work-in-progress (WIP) limits, with a set limit of number of tasks to be in WTP column. This practice helps to reveal where work flow is stuck and requires focus. 
 
 Example: in a Kanban board, Columns are set up as: To Do → In Progress → Code Review → Done. When setting Code Review WIP to 2. The low limit encourages developers to review promptly rather than let items pile up, which lowers overall cycle time.
 
@@ -87,7 +87,7 @@ Continuous improvement is easier with visible data. Two standard Kanban reports 
 
 Continuous delivery (CD) means shipping updates to customers frequently. Continuous integration (CI) is the practice of automatically building and testing small code changes throughout the day. Together, CI and CD form the CI/CD pipeline, core to DevOps for releasing faster without sacrificing quality.
 
-Kanban aligns well with CD because both emphasise just-in-time, single-piece flow of value. By streamlining how work moves through the system, Kanban helps teams deliver changes to users quickly, increasing speed to market and product competitiveness.
+Kanban aligns well with CD because both emphasize just-in-time, single-piece flow of value. By streamlining how work moves through the system, Kanban helps teams deliver changes to users quickly, increasing speed to market and product competitiveness.
 
 Specifically, Kanban will be applied in this Dating Application project as following example:
 
@@ -97,7 +97,7 @@ Specifically, Kanban will be applied in this Dating Application project as follo
 | To Do         | Build log in authentication feature| Task is allocated to developers |
 | In Progress   | Develop ERD       | Developer keep working on developing ERD  |
 | Code Review   |  Peer reviews - authentication feature  | Reviewers comment, team members discussed and approve |
-| Testing       |  Test message sending and receiving feature   | Verify accross devices |
+| Testing       |  Test message sending and receiving feature   | Verify across devices |
 | Done          |  UI design   | Developer now can start build UI |
 
 # 3. User Stories
@@ -142,7 +142,7 @@ The messaging app will be designed to be accessible, inclusive, and usable by pe
 ## 4.2. Web applications should respect a user's privacy and security
 Given that the app handles personal data (profiles, private conversations, and gameplay activity), security and privacy are important requirements.
 - authentication to be applied for log in feature using *AuthO*, including:
-  - hash, salt and apply jwt for user password to ensure security for user log in details. hash and salt is implemented using *bcryt* package, jwt is applied using *jsonwebtoken*. 
+  - hash, salt and apply jwt for user password to ensure security for user log in details. hash and salt is implemented using *bcrypt* package, jwt is applied using *jsonwebtoken*. 
   - multi-factor authentication to protect user account from being hacked. 
 - authorisation to be applied for messaging and viewing profile feature using *AuthO*, including:
   - allow user to make privacy setting on who can view their profile, dividing in following settings. In GET requests to profile pages, the user profile setting and the user making requests are evaluated.
@@ -167,7 +167,7 @@ The messaging app will be designed and developed to work across browsers, operat
   - Asynchronous request handling for chat messages and notifications
   - performance monitoring the web app using *WebPageTest*.
 - App shows consistent behavior across all major browsers (Chrome, Safari, Firefox, Edge) and platforms (Windows, macOS, Android, iOS). This can be achieved with:
-  - Check compatibility of used functions and packages with different browers during development phase, using *CanIUse.com* and MDN Compatibility Data  
+  - Check compatibility of used functions and packages with different browsers during development phase, using *CanIUse.com* and MDN Compatibility Data  
   - Test in multiple web browsers using *BrowserStack*
 
 ## 4.4. Web developers should be considerate of their peers
@@ -176,10 +176,10 @@ The messaging app will be built and maintained in a way that promotes collaborat
 - Comments and code documentation are maintained throughout the development and kept up to date to make the codebase easy to understand, maintain, and extend by future developers.
 This can be achieved with:
   - Inline comments for each module and function, explaining purpose, logic, and expected parameter, using *JSDoc*
-  - Descriptive naming conventions for varibale functions, and classes.
-  - Mainain a detailed README.md and CONTRIBUTING.md file outlining detailed setup steps (e.g. install dependencies), testing commands and code expectations. 
+  - Descriptive naming conventions for variable functions, and classes.
+  - Maintain a detailed README.md and CONTRIBUTING.md file outlining detailed setup steps (e.g. install dependencies), testing commands and code expectations. 
 -  Maintain a consistent, readable codebase and ensure reliability through automated testing. This can be achieved with:
-  - Ensure consistent syntax and code style accross the project, using *Prettier*.
+  - Ensure consistent syntax and code style across the project, using *Prettier*.
   - Build automated testing using unit tests with *Jest*.
 - Using structure version control with *Github*, and maintain clear conventional commit messages. Also use CODEOWNER to assign reviewers automatically for specific files and modules. 
 
