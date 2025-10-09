@@ -1,6 +1,6 @@
 # Programming Paradigm
 
-This project will be using Object-Oriented Programming (OOP) as its primary paradigm. We have structored our project around using objects so this makes the most sense. For example: message and message log are seprate leading to easly turing these two into objects (two seprate classes both with diffrent data and methods).
+This project will be using Object-Oriented Programming (OOP) as its primary paradigm. We have structured our project around using objects so this makes the most sense. For example: message and message log are separate leading to easily turing these two into objects (two separate classes both with different data and methods).
 
 ```
 class MessageLog:
@@ -41,10 +41,10 @@ The UI uses functional programming - using a mix of Javascript, Html and Css - t
 
 - Back end | Object-Oriented (OOP)
 
-Explaned above
+Explained above
 
 - Database | Data-oriented programming (DOP)
 
-Data structored into the tables given in the ERD into a SQL datavase
+Data structured into the tables given in the ERD into a SQL database
 
 ![Agile method cycle](./images/App_ERD.png)
