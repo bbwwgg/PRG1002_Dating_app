@@ -11,7 +11,7 @@
 # 2. Software Development Methodologies
 ## 2.1. Project management 
 
-In this project, Agile methodology will be used. This methodology is an iteractive approach to manage and execute product development projects.
+In this project, Agile methodology will be used. This methodology is an interactive approach to manage and execute product development projects.
 
 Agile project management breaks a project into smaller, manageable phases called sprints. Each sprint follows a cycle of planning, execution, and review, enabling teams to quickly adjust to changes and steadily refine the product. This means after every sprint, teams review, reflect and look back to see if there was anything that could be improved so they can adjust their strategy for the next sprint.
 
@@ -45,8 +45,8 @@ The diagram below explains how Agile methodology will be applied in this Messagi
 ![diagram about how agile applied in the project](./images/agile_diagram.jpg)
 
 For examples:
-- When development of main features of the app is completed and tested, app will be deployed and released to the market. These main features include: user setting up profile, users connecting to each other and messaging. After releasing, user feedbacks will be collected based on rating and reviews on app store, and app will be upgraded or debugged based on those reviews. New feature such as game playing in the chat window will be developed with consideration of those feedbacks as well.
-- Login system is one of prioritised features in "To Do" column. The backend devloper picks the features, moves it to "In Progress" column. This feature will then be broken down into various aspects. The developer will work on this from plan, design, develop, test, review and deploy. The login feature is then considered completed, presented to users to gather feedbacks. 
+- When development of main features of the app is completed and tested, app will be deployed and released to the market. These main features include: user setting up profile, users connecting to each other and messaging. After releasing, user feedbacks will be collected based on rating and reviews on app store, and app will be upgraded or debugged based on those reviews. New feature such as game playing will be developed with consideration of those feedbacks as well.
+- Login system is one of prioritised features in "To Do" column. The backend developer picks the features, moves it to "In Progress" column. This feature will then be broken down into various aspects. The developer will work on this from plan, design, develop, test, review and deploy. The login feature is then considered completed, presented to users to gather feedbacks. 
 - Mini-games integration will be picked up when developers have capacity and no disruption to developing other main features. 
 
 ## 2.2. Task management
@@ -56,7 +56,7 @@ Kanban is a visual framework within Agile project management. It uses a board-ba
 ### Benefits of Kanban method:
 - Planning flexibility: 
 
-Using Kanban help team members to concentrate on the tasks currently in progress. When a task is finished, the next item is pulled from the backlog. Because only in-progress work is affected, the leader/ product owner can freely reprioritize the backlog without disrupting the team.
+Using Kanban help team members to concentrate on the tasks currently in progress. When a task is finished, the next item is pulled from the backlog. Because only in-progress work is affected, the leader/ product owner can freely reprioritise the backlog without disrupting the team.
 
 By keeping the highest-priority items at the top of the backlog, the team members can confidently pull the next task from backlog and consistently deliver the most value for the project. 
 
@@ -66,22 +66,28 @@ Cycle time is the duration from when work starts to when it ships. By reducing c
 
 - Fewer bottlenecks:
 
-in a team, tem mmultitasking and context switching between team members can slow progress. Kanban can help to control this with work-in-progress (WIP) limits, with a set limit of number of tasks to be in WTP column. This practice helps to reveal where work flow is stuck and requires focus. 
+in a team, tem multitasking and context switching between team members can slow progress. Kanban can help to control this with work-in-progress (WIP) limits, with a set limit of number of tasks to be in WTP column. This practice helps to reveal where work flow is stuck and requires focus. 
 
 Example: in a Kanban board, Columns are set up as: To Do → In Progress → Code Review → Done. When setting Code Review WIP to 2. The low limit encourages developers to review promptly rather than let items pile up, which lowers overall cycle time.
 
 - Visual metrics:
 
 Continuous improvement is easier with visible data. Two standard Kanban reports help spot and remove blockers:
-	•	Control chart: shows each issue item’s cycle time and the rolling average.
+
+  *Control chart*: shows each issue item’s cycle time and the rolling average.
+
   ![Kanban control chart example](./images/image-1.png)
-	•	Cumulative flow diagram (CFD): shows how many items sit in each state. A growing band in “In Progress” or “In Review” signals a blocker; unresolved, these can lead to painful merge/integration issues later.
+  *(Source: https://www.atlassian.com/agile/kanban)*
+
+*Cumulative flow diagram (CFD)*: shows how many items sit in each state. A growing band in “In Progress” or “In Review” signals a blocker; unresolved, these can lead to painful merge/integration issues later.
+
   ![Kanban flow diagram example](./images/image-2.png)
+   *(Source: https://www.atlassian.com/agile/kanban)*
 - Continuous delivery (CD) and CI/CD:
 
 Continuous delivery (CD) means shipping updates to customers frequently. Continuous integration (CI) is the practice of automatically building and testing small code changes throughout the day. Together, CI and CD form the CI/CD pipeline, core to DevOps for releasing faster without sacrificing quality.
 
-Kanban aligns well with CD because both emphasise just-in-time, single-piece flow of value. By streamlining how work moves through the system, Kanban helps teams deliver changes to users quickly, increasing speed to market and product competitiveness.
+Kanban aligns well with CD because both emphasize just-in-time, single-piece flow of value. By streamlining how work moves through the system, Kanban helps teams deliver changes to users quickly, increasing speed to market and product competitiveness.
 
 Specifically, Kanban will be applied in this Dating Application project as following example:
 
@@ -91,7 +97,7 @@ Specifically, Kanban will be applied in this Dating Application project as follo
 | To Do         | Build log in authentication feature| Task is allocated to developers |
 | In Progress   | Develop ERD       | Developer keep working on developing ERD  |
 | Code Review   |  Peer reviews - authentication feature  | Reviewers comment, team members discussed and approve |
-| Testing       |  Test message sending and receiving feature   | Verify accross devices |
+| Testing       |  Test message sending and receiving feature   | Verify across devices |
 | Done          |  UI design   | Developer now can start build UI |
 
 # 3. User Stories
@@ -136,7 +142,7 @@ The messaging app will be designed to be accessible, inclusive, and usable by pe
 ## 4.2. Web applications should respect a user's privacy and security
 Given that the app handles personal data (profiles, private conversations, and gameplay activity), security and privacy are important requirements.
 - authentication to be applied for log in feature using *AuthO*, including:
-  - hash, salt and apply jwt for user password to ensure security for user log in details. hash and salt is implemented using *bcryt* package, jwt is applied using *jsonwebtoken*. 
+  - hash, salt and apply jwt for user password to ensure security for user log in details. hash and salt is implemented using *bcrypt* package, jwt is applied using *jsonwebtoken*. 
   - multi-factor authentication to protect user account from being hacked. 
 - authorisation to be applied for messaging and viewing profile feature using *AuthO*, including:
   - allow user to make privacy setting on who can view their profile, dividing in following settings. In GET requests to profile pages, the user profile setting and the user making requests are evaluated.
@@ -161,7 +167,7 @@ The messaging app will be designed and developed to work across browsers, operat
   - Asynchronous request handling for chat messages and notifications
   - performance monitoring the web app using *WebPageTest*.
 - App shows consistent behavior across all major browsers (Chrome, Safari, Firefox, Edge) and platforms (Windows, macOS, Android, iOS). This can be achieved with:
-  - Check compatibility of used functions and packages with different browers during development phase, using *CanIUse.com* and MDN Compatibility Data  
+  - Check compatibility of used functions and packages with different browsers during development phase, using *CanIUse.com* and MDN Compatibility Data  
   - Test in multiple web browsers using *BrowserStack*
 
 ## 4.4. Web developers should be considerate of their peers
@@ -170,20 +176,104 @@ The messaging app will be built and maintained in a way that promotes collaborat
 - Comments and code documentation are maintained throughout the development and kept up to date to make the codebase easy to understand, maintain, and extend by future developers.
 This can be achieved with:
   - Inline comments for each module and function, explaining purpose, logic, and expected parameter, using *JSDoc*
-  - Descriptive naming conventions for varibale functions, and classes.
-  - Mainain a detailed README.md and CONTRIBUTING.md file outlining detailed setup steps (e.g. install dependencies), testing commands and code expectations. 
+  - Descriptive naming conventions for variable functions, and classes.
+  - Maintain a detailed README.md and CONTRIBUTING.md file outlining detailed setup steps (e.g. install dependencies), testing commands and code expectations. 
 -  Maintain a consistent, readable codebase and ensure reliability through automated testing. This can be achieved with:
-  - Ensure consistent syntax and code style accross the project, using *Prettier*.
+  - Ensure consistent syntax and code style across the project, using *Prettier*.
   - Build automated testing using unit tests with *Jest*.
 - Using structure version control with *Github*, and maintain clear conventional commit messages. Also use CODEOWNER to assign reviewers automatically for specific files and modules. 
 
 
-# Client/Server Architecture Explanation  
+# 5. App Architecture
+## 5.1. Software Architecture Pattern
+One of common software architecture pattern will be used in this application project is Event-driven architecture. 
+
+Event-Driven Architecture (EDA) is a software design approach where system parts communicate through events—signals that something important has happened, such as a user action or a system change.
+
+Instead of constantly checking for updates, components react to events as they occur. When one component generates an event, others that care about that event can respond immediately. This makes the system real-time, modular, and scalable, since each part can operate independently without tight connections.
+
+That makes EDA suitable for Messaging application, which requires real-time data transfer. 
+
+The diagram below shows how EDA works. 
+
+![Event-driven architecture diagram](images/image-5.png)
+*(Source: https://www.researchgate.net/figure/Event-Driven-Communication-Decoupled-Interactions-Event-publishers-often-do-not_fig2_335234337)*
+
+Below diagram shows publisher/subscriber 
+
+Below diagram shows an example of event-driven architecture of e-commerce website:
+![Event-Driven Architecture of E-Commerce Site](./images/image-3.png)
+*(Source: https://www.geeksforgeeks.org/system-design/event-driven-architecture-system-design/)*
+
+Another example is: implementation of EDA in an online ordering system where users are notified when their order is placed. Below is the programming example of this system in Python, includes a publisher, an event bus, and a subscriber. 
+```python
+# Event Bus
+class EventBus:
+    subscribers = {}
+
+    @classmethod
+    def subscribe(cls, event_type, subscriber):
+        if event_type not in cls.subscribers:
+            cls.subscribers[event_type] = []
+        cls.subscribers[event_type].append(subscriber)
+
+    @classmethod
+    def publish(cls, event_type, data=None):
+        if event_type in cls.subscribers:
+            for subscriber in cls.subscribers[event_type]:
+                subscriber.handle_event(event_type, data)
+
+
+# Event Subscriber
+class OrderNotificationSubscriber:
+    def handle_event(self, event_type, data=None):
+        if event_type == 'OrderPlaced':
+            print(&quot;Notification: Your order with ID {} has been placed!&quot;.format(data['order_id']))
+
+
+# Event Publisher
+class OrderService:
+    def place_order(self, order_id):
+        # Order placement logic here
+        # ...
+
+        # Notify subscribers about the order placement
+        EventBus.publish('OrderPlaced', {'order_id': order_id})
+
+
+# Example Usage
+if __name__ == &quot;__main__&quot;:
+    # Creating instances
+    order_notification_subscriber = OrderNotificationSubscriber()
+    order_service = OrderService()
+
+    # Subscribing the subscriber to the 'OrderPlaced' event
+    EventBus.subscribe('OrderPlaced', order_notification_subscriber)
+
+    # Placing an order
+    order_service.place_order(order_id=123)
+```
+*Source: https://www.geeksforgeeks.org/system-design/event-driven-architecture-system-design/*
+
+- Event Bus:
+
+The EventBus class acts as the main communication channel for events within the system. It lets components subscribe to certain event types and publish events so that subscribers are notified when those events occur.
+- Event Subscriber:
+
+The ```OrderNotificationSubscriber``` class represents a listener that reacts to the OrderPlaced event. In a real-world system, this subscriber might handle tasks like sending notifications, confirmation emails, or triggering other related processes.
+- Event Publisher:
+
+The ```OrderService``` class handles creating orders. Once an order is successfully placed, it publishes an OrderPlaced event through the EventBus to alert all subscribers that the event has occurred.
+- Example Usage:
+
+In practice, the subscriber registers with the event bus using ```EventBus.subscribe``` to listen for the ```OrderPlaced``` event. When an order is created via ```order_service.place_order```, the event is published, and the subscriber’s handle_event method is automatically triggered to perform its assigned action.
+## 5.2. Client/Server Architecture Explanation  
     
 In this message app project, the app utilizes a client/server architecture that separates the application into two parts that work together for ensure nice and easy user experience. The client is the part users interact with (whether through a web or mobile interface), where they can log in, edit their profile, send or receive messages  and play games with other in real time, whenever the client needs information, like loading a chat or a game, updating a profile, it sends a request to the server. The server is the backend of the app and is responsible for handling all the logic, processing the requests, communicating with the database where all user data, profiles and messages are store and. managing  the user authentication. When the server receives a request, it processes it and sends back the necessary data (JSON format).  
 For messages in real time, the client and server maintain a continuous connection using WebSockets, which allows real-time updates without the need to refresh the page. This structure ensures that users can interact in real time while the server securely manages data and keeps everything synchronized between users.  
   
-# What is a WebSocket?    
+### What is a WebSocket?    
 A **WebSocket** is a communication protocol that open a continuous connection between a website or application and the server. Unlike Web request that need constant request updates, a WebSocket maintains an open connection that ensures new information being displayed immediately without requiring to reload the page enabling instant messages.  
+
 
 
