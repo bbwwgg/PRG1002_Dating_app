@@ -317,7 +317,30 @@ In this message app project, the app utilizes a client/server architecture that 
 For messages in real time, the client and server maintain a continuous connection using WebSockets, which allows real-time updates without the need to refresh the page. This structure ensures that users can interact in real time while the server securely manages data and keeps everything synchronized between users.  
   
 ### What is a WebSocket?    
-A **WebSocket** is a communication protocol that open a continuous connection between a website or application and the server. Unlike Web request that need constant request updates, a WebSocket maintains an open connection that ensures new information being displayed immediately without requiring to reload the page enabling instant messages.  
+A **WebSocket** is a communication protocol that open a continuous connection between a website or application and the server. Unlike Web request that need constant request updates, a WebSocket maintains an open connection that ensures new information being displayed immediately without requiring to reload the page enabling instant messages.
 
+In this project we decide to use Socket.IO, a JavaScript library that offers all the benefits of WebSockets like low-latency, bidirectional and event-based communication between a client and a server, but also provides additional benefits such as support for broadcasting messages to multiple users simultaneously, automatic reconnection and simplified event handling.
+
+
+The connection can be established with different low-level transports:
+
+HTTP long-polling: The connection will fall back to HTTP long-polling in case the WebSocket connection cannot be established.
+WebSocket
+WebTransport
+
+Socket.IO will automatically pick the best available option, depending on the capabilities of the browser and the network (some networks block WebSocket and/or WebTransport connections)
+
+Sources:
+Socket.IO:
+(Source: https://socket.io/docs/v4/)
+How it Works? 
+(Source: https://socket.io/get-started/chat)
+Chat Example:
+(Source: https://github.com/socketio/chat-example.git)
+
+
+CAUTION:
+- Although Socket.IO indeed uses WebSocket for transport when possible, it adds additional metadata to each packet. That is why a WebSocket client will not be able to successfully connect to a Socket.IO server, and a Socket.IO client will not be able to connect to a plain WebSocket server either.
+- The Socket.IO library keeps an open TCP connection to the server, which may result in a high battery drain for your users. Please use a dedicated messaging platform like FCM for this use case.
 
 
