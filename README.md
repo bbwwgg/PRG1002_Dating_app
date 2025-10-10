@@ -312,11 +312,19 @@ It is a complete waste of time and processing power if we make the user log in a
 
 When a logout occurs both the cookie and the saved information is deleted. 
 
+
+#### How the app uses client/server architecture
+
 In this message app project, the app utilizes a client/server architecture that separates the application into two parts that work together for ensure nice and easy user experience. The client is the part users interact with (whether through a web or mobile interface), where they can log in, edit their profile, send or receive messages  and play games with other in real time, whenever the client needs information, like loading a chat or a game, updating a profile, it sends a request to the server. The server is the backend of the app and is responsible for handling all the logic, processing the requests, communicating with the database where all user data, profiles and messages are store and. managing  the user authentication. When the server receives a request, it processes it and sends back the necessary data (JSON format).
 
-For messages in real time, the client and server maintain a continuous connection using WebSockets, which allows real-time updates without the need to refresh the page. This structure ensures that users can interact in real time while the server securely manages data and keeps everything synchronized between users.  
-  
-### What is a WebSocket?    
+
+# Client/Server Communication:
+
+The communication between the client and the server occurs throught HTTP/HTTPS request and Websockets.
+HTTP/HTTPS are request and responses that used for logging in, updating profiles or registering. 
+For messages in real time, the client and server maintain a continuous connection using WebSockets, which allows real-time updates without the need to refresh the page. This structure ensures that users can interact in real time while the server securely manages data and keeps everything synchronized between users.   
+
+- What is a WebSocket?    
 A **WebSocket** is a communication protocol that open a continuous connection between a website or application and the server. Unlike Web request that need constant request updates, a WebSocket maintains an open connection that ensures new information being displayed immediately without requiring to reload the page enabling instant messages.
 
 In this project we decide to use Socket.IO, a JavaScript library that offers all the benefits of WebSockets like low-latency, bidirectional and event-based communication between a client and a server, but also provides additional benefits such as support for broadcasting messages to multiple users simultaneously, automatic reconnection and simplified event handling.
@@ -342,5 +350,25 @@ Chat Example:
 CAUTION:
 - Although Socket.IO indeed uses WebSocket for transport when possible, it adds additional metadata to each packet. That is why a WebSocket client will not be able to successfully connect to a Socket.IO server, and a Socket.IO client will not be able to connect to a plain WebSocket server either.
 - The Socket.IO library keeps an open TCP connection to the server, which may result in a high battery drain for your users. Please use a dedicated messaging platform like FCM for this use case.
+
+# Data Distribution
+
+The Server is responsible for managing and distributing data to clients, when a user updates their profile or sends a message, the server processes and distributes this data to the relevant users.
+Lets say, when the user sends a message to group chat, the server will process and distribute that message to all the user in the group.
+
+# Authorization
+
+When the user logs in, the server checks that their username and password are in the stored records in the database, if they are valid the server creates a token id that identifies that user, this token is included in future request to know who's sending the requests and grant permision.
+
+# Distribution 
+
+The client focuses on user interaction like showing changes, displaying images and messages, handling inputs. While the server takes care of the heavy tasks like managing user data, proccesing the messages, controlling access.
+This distribution allows developers to update the server without changing the client interface.
+
+# Validation
+
+To ensure all the data sent between the client and the server is secure. 
+- The client side validation helps users to avoid mistakes like making sure required fields are filled or passwords are secure enought meeting the password security requirements.
+- The server validation ensures any data received is in the correct format and safe before being processed and stored in the database. Helping to prevent errors and invalid inputs. 
 
 
