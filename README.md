@@ -268,8 +268,40 @@ The ```OrderService``` class handles creating orders. Once an order is successfu
 
 In practice, the subscriber registers with the event bus using ```EventBus.subscribe``` to listen for the ```OrderPlaced``` event. When an order is created via ```order_service.place_order```, the event is published, and the subscriber’s handle_event method is automatically triggered to perform its assigned action.
 ## 5.2. Client/Server Architecture Explanation  
-    
-In this message app project, the app utilizes a client/server architecture that separates the application into two parts that work together for ensure nice and easy user experience. The client is the part users interact with (whether through a web or mobile interface), where they can log in, edit their profile, send or receive messages  and play games with other in real time, whenever the client needs information, like loading a chat or a game, updating a profile, it sends a request to the server. The server is the backend of the app and is responsible for handling all the logic, processing the requests, communicating with the database where all user data, profiles and messages are store and. managing  the user authentication. When the server receives a request, it processes it and sends back the necessary data (JSON format).  
+
+Client server architecture is made up from a few diffrent components. The first is the client, which is usually a device or aplication that requests to the server. The client can be many diffrent things: web browsers, moblie or desktop apps. The Server is a software application, or computer that processess and manages data given by clients while returning valid information.
+
+Lastly is the internet, which is the mechanism allowing the communication betweeen the two.
+
+Going into more detail of this process:
+
+- First the client sends a request to the server
+
+- The request is usually in the form of a HTTP message and is sent to the requested server's ip address via the internet
+
+- The server then takes in and processess the request on a given port doing any backend logic that is needed to the data and prepares a response to send back to the client
+
+- The response that is sent back can take numerous diffrent forms: webpages, json data or search results etc
+
+- The client then renders and displays the given response
+
+![Basic Server architecture diagram](images/Client_server_architecture.jpg)
+*(Source: https://blog.algomaster.io/p/client-server-architecture-explained)*
+
+#### Key technologies used by clients and servers
+
+- HTTP/HTTPS is the internet protocol that web browsers and servers use
+
+- DNS (Domain Name System) is a method that turns readable domain names EG: https://www.google.com/ into an actual IP address to send the information to
+
+- PORTS Servers accept information only on specfic ports: HTTPS is only accepted by a server listening on port 443 and HTTP is only accepted by a server listening on port 80. Its important to note that HTTPS is seen as a much more secure form of sending data as it is encrypted while HTTP is not.
+
+
+![HTTP v HTTPS](images/Port80vPort443.png)
+*(Source: https://certera.com/blog/port-80-http-vs-port-443-https-everything-to-know-about/)*
+
+In this message app project, the app utilizes a client/server architecture that separates the application into two parts that work together for ensure nice and easy user experience. The client is the part users interact with (whether through a web or mobile interface), where they can log in, edit their profile, send or receive messages  and play games with other in real time, whenever the client needs information, like loading a chat or a game, updating a profile, it sends a request to the server. The server is the backend of the app and is responsible for handling all the logic, processing the requests, communicating with the database where all user data, profiles and messages are store and. managing  the user authentication. When the server receives a request, it processes it and sends back the necessary data (JSON format).
+
 For messages in real time, the client and server maintain a continuous connection using WebSockets, which allows real-time updates without the need to refresh the page. This structure ensures that users can interact in real time while the server securely manages data and keeps everything synchronized between users.  
   
 ### What is a WebSocket?    
