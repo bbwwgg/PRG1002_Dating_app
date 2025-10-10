@@ -300,6 +300,18 @@ Going into more detail of this process:
 ![HTTP v HTTPS](images/Port80vPort443.png)
 *(Source: https://certera.com/blog/port-80-http-vs-port-443-https-everything-to-know-about/)*
 
+
+### Authentication
+
+Another important part of server is authentication. Ensuring that only people that are allowed to access information can access information.There are a few diffrent methods to do this. The one that we will be using in this project is User Credentials. Essentally, whenever a new user joins our website they will register as a user with a username and password. This is then saved on our servers database. Whenever this new user then tries to access their profile, we'll check the user's credentials against what we have saved in our system. Verifing that they are allowed to access the site. If they are we send them back all the corresponding info, if not we do send back and error.
+
+![Authentication via user credentials](images/Authentication.png)
+*(Source: https://dev.to/ratneshjain40/beginners-guide-to-authentication-and-authorization-in-client-server-model-express-js-and-passport-n46)*
+
+It is a complete waste of time and processing power if we make the user log in and send their credentials with each HTTP request thus we also use session ID/cookies. How this works is very similar, we stil have the user log in and confirm their credentials with the server and database. After this is completed we can create and save a session object which has an identification key and usually a primary key to identify who is communicating (usually this is a user_id), This is then saved into the server. We then send back this session ID to the client in a form of a cookie. Now with each HTTP request the webpage makes the session ID coockie is attached. Now the sever can use the server ID to check what the user is allowed to access. 
+
+When a logout occurs both the cookie and the saved information is deleted. 
+
 In this message app project, the app utilizes a client/server architecture that separates the application into two parts that work together for ensure nice and easy user experience. The client is the part users interact with (whether through a web or mobile interface), where they can log in, edit their profile, send or receive messages  and play games with other in real time, whenever the client needs information, like loading a chat or a game, updating a profile, it sends a request to the server. The server is the backend of the app and is responsible for handling all the logic, processing the requests, communicating with the database where all user data, profiles and messages are store and. managing  the user authentication. When the server receives a request, it processes it and sends back the necessary data (JSON format).
 
 For messages in real time, the client and server maintain a continuous connection using WebSockets, which allows real-time updates without the need to refresh the page. This structure ensures that users can interact in real time while the server securely manages data and keeps everything synchronized between users.  
