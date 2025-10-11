@@ -1,15 +1,9 @@
 # DEV1002_Message_app
 
-# Features
-- User's and user profile.
-- Edit those profiles
-- Connect to other users
-- Real-time messaging other privately or in group chat
-- Integration of mini-games into chat
 
 
-# 2. Software Development Methodologies
-## 2.1. Project management 
+# 1. Software Development Methodologies
+## 1.1. Project management 
 
 In this project, Agile methodology will be used. This methodology is an interactive approach to manage and execute product development projects.
 
@@ -49,7 +43,7 @@ For examples:
 - Login system is one of prioritised features in "To Do" column. The backend developer picks the features, moves it to "In Progress" column. This feature will then be broken down into various aspects. The developer will work on this from plan, design, develop, test, review and deploy. The login feature is then considered completed, presented to users to gather feedbacks. 
 - Mini-games integration will be picked up when developers have capacity and no disruption to developing other main features. 
 
-## 2.2. Task management
+## 1.2. Task management
 Kanban is selected to be task management methodology for this project. 
 Kanban is a visual framework within Agile project management. It uses a board-based system to track the status of tasks throughout the workflow. Each task is represented by a card, and workflow stages are shown as columns (e.g., Backlog, In Progress, Review, Done). As progress is made, team members move task cards from one column to the next, providing clear visibility into where each task sits in the development process.
 
@@ -100,7 +94,7 @@ Specifically, Kanban will be applied in this Dating Application project as follo
 | Testing       |  Test message sending and receiving feature   | Verify across devices |
 | Done          |  UI design   | Developer now can start build UI |
 
-# 3. User Stories
+# 2. User Stories
 The Message application addresses following user stories:
  
 **Persona 1: Everyday User (Alex, 27, office workers)**
@@ -128,9 +122,9 @@ The Message application addresses following user stories:
 *Reason*: Alice focus on privacy and security of an application. Therefore, maintaining professionalism, protecting privacy, and ensuring reliability in communication is required for the Message application. 
 
 
-# 4. Ethical Principles
-The application adheres to following main ethical priciples
-## 4.1. The Web should work for everyone
+# 3. Ethical Principles
+The application adheres to following main ethical principles
+## 3.1. The Web should work for everyone
 
 The messaging app will be designed to be accessible, inclusive, and usable by people with different abilities, devices, and technical literacy levels, by implementing following features and tools
 - The user interface is designed and built for various devices: various types of phone, tablet, laptop and desktop. 
@@ -139,7 +133,7 @@ The messaging app will be designed to be accessible, inclusive, and usable by pe
 - Provide alt-text for profile images and icons
 - Use i18n frameworks such as *i18next* to manage translations in Javascript. 
 - Optimize assets for low-bandwidth environments by serving compressed images
-## 4.2. Web applications should respect a user's privacy and security
+## 3.2. Web applications should respect a user's privacy and security
 Given that the app handles personal data (profiles, private conversations, and gameplay activity), security and privacy are important requirements.
 - authentication to be applied for log in feature using *AuthO*, including:
   - hash, salt and apply jwt for user password to ensure security for user log in details. hash and salt is implemented using *bcrypt* package, jwt is applied using *jsonwebtoken*. 
@@ -159,7 +153,7 @@ Given that the app handles personal data (profiles, private conversations, and g
 - Use *helmet* to secure HTTP headers, protect the application from security attacks
   - only allow content from certain domain to be exchanged in message chat. 
 
-## 4.3. Web applications should work everywhere
+## 3.3. Web applications should work everywhere
 The messaging app will be designed and developed to work across browsers, operating systems, and network conditions. 
 - Deliver a fast, efficient experience even on slower networks and low-spec devices by minimizing loading times, optimizing resources, and improving runtime performance. This can be achieved with:
   - apply lazy loading for mini-games and chat messages
@@ -170,7 +164,7 @@ The messaging app will be designed and developed to work across browsers, operat
   - Check compatibility of used functions and packages with different browsers during development phase, using *CanIUse.com* and MDN Compatibility Data  
   - Test in multiple web browsers using *BrowserStack*
 
-## 4.4. Web developers should be considerate of their peers
+## 3.4. Web developers should be considerate of their peers
 The messaging app will be built and maintained in a way that promotes collaboration, clarity, respect. The development environment and team culture will follow best practices in documentation, testing, version control, and community engagement to ensure that all contributors can work efficiently and collaboratively. 
 
 - Comments and code documentation are maintained throughout the development and kept up to date to make the codebase easy to understand, maintain, and extend by future developers.
@@ -184,8 +178,8 @@ This can be achieved with:
 - Using structure version control with *Github*, and maintain clear conventional commit messages. Also use CODEOWNER to assign reviewers automatically for specific files and modules. 
 
 
-# 5. App Architecture
-## 5.1. Software Architecture Pattern
+# 4. App Architecture
+## 4.1. Software Architecture Pattern
 One of common software architecture pattern will be used in this application project is Event-driven architecture. 
 
 Event-Driven Architecture (EDA) is a software design approach where system parts communicate through events—signals that something important has happened, such as a user action or a system change.
@@ -267,11 +261,11 @@ The ```OrderService``` class handles creating orders. Once an order is successfu
 - Example Usage:
 
 In practice, the subscriber registers with the event bus using ```EventBus.subscribe``` to listen for the ```OrderPlaced``` event. When an order is created via ```order_service.place_order```, the event is published, and the subscriber’s handle_event method is automatically triggered to perform its assigned action.
-## 5.2. Client/Server Architecture Explanation  
+## 4.2. Client/Server Architecture  
 
-Client server architecture is made up from a few diffrent components. The first is the client, which is usually a device or aplication that requests to the server. The client can be many diffrent things: web browsers, moblie or desktop apps. The Server is a software application, or computer that processess and manages data given by clients while returning valid information.
+Client server architecture is made up from a few different components. The first is the client, which is usually a device or application that requests to the server. The client can be many different things: web browsers, mobile or desktop apps. The Server is a software application, or computer that processes and manages data given by clients while returning valid information.
 
-Lastly is the internet, which is the mechanism allowing the communication betweeen the two.
+Lastly is the internet, which is the mechanism allowing the communication between the two.
 
 Going into more detail of this process:
 
@@ -279,9 +273,9 @@ Going into more detail of this process:
 
 - The request is usually in the form of a HTTP message and is sent to the requested server's ip address via the internet
 
-- The server then takes in and processess the request on a given port doing any backend logic that is needed to the data and prepares a response to send back to the client
+- The server then takes in and processes the request on a given port doing any backend logic that is needed to the data and prepares a response to send back to the client
 
-- The response that is sent back can take numerous diffrent forms: webpages, json data or search results etc
+- The response that is sent back can take numerous different forms: webpages, json data or search results etc
 
 - The client then renders and displays the given response
 
@@ -294,7 +288,7 @@ Going into more detail of this process:
 
 - DNS (Domain Name System) is a method that turns readable domain names EG: https://www.google.com/ into an actual IP address to send the information to
 
-- PORTS Servers accept information only on specfic ports: HTTPS is only accepted by a server listening on port 443 and HTTP is only accepted by a server listening on port 80. Its important to note that HTTPS is seen as a much more secure form of sending data as it is encrypted while HTTP is not.
+- PORTS Servers accept information only on specific ports: HTTPS is only accepted by a server listening on port 443 and HTTP is only accepted by a server listening on port 80. Its important to note that HTTPS is seen as a much more secure form of sending data as it is encrypted while HTTP is not.
 
 
 ![HTTP v HTTPS](images/Port80vPort443.png)
@@ -303,21 +297,136 @@ Going into more detail of this process:
 
 ### Authentication
 
-Another important part of server is authentication. Ensuring that only people that are allowed to access information can access information.There are a few diffrent methods to do this. The one that we will be using in this project is User Credentials. Essentally, whenever a new user joins our website they will register as a user with a username and password. This is then saved on our servers database. Whenever this new user then tries to access their profile, we'll check the user's credentials against what we have saved in our system. Verifing that they are allowed to access the site. If they are we send them back all the corresponding info, if not we do send back and error.
+Another important part of server is authentication. Ensuring that only people that are allowed to access information can access information.There are a few different methods to do this. The one that we will be using in this project is User Credentials. Essentially, whenever a new user joins our website they will register as a user with a username and password. This is then saved on our servers database. Whenever this new user then tries to access their profile, we'll check the user's credentials against what we have saved in our system. Verifying that they are allowed to access the site. If they are we send them back all the corresponding info, if not we do send back and error.
 
 ![Authentication via user credentials](images/Authentication.png)
 *(Source: https://dev.to/ratneshjain40/beginners-guide-to-authentication-and-authorization-in-client-server-model-express-js-and-passport-n46)*
 
-It is a complete waste of time and processing power if we make the user log in and send their credentials with each HTTP request thus we also use session ID/cookies. How this works is very similar, we stil have the user log in and confirm their credentials with the server and database. After this is completed we can create and save a session object which has an identification key and usually a primary key to identify who is communicating (usually this is a user_id), This is then saved into the server. We then send back this session ID to the client in a form of a cookie. Now with each HTTP request the webpage makes the session ID coockie is attached. Now the sever can use the server ID to check what the user is allowed to access. 
+It is a complete waste of time and processing power if we make the user log in and send their credentials with each HTTP request thus we also use session ID/cookies. How this works is very similar, we still have the user log in and confirm their credentials with the server and database. After this is completed we can create and save a session object which has an identification key and usually a primary key to identify who is communicating (usually this is a user_id), This is then saved into the server. We then send back this session ID to the client in a form of a cookie. Now with each HTTP request the webpage makes the session ID cookie is attached. Now the sever can use the server ID to check what the user is allowed to access. 
 
 When a logout occurs both the cookie and the saved information is deleted. 
 
 In this message app project, the app utilizes a client/server architecture that separates the application into two parts that work together for ensure nice and easy user experience. The client is the part users interact with (whether through a web or mobile interface), where they can log in, edit their profile, send or receive messages  and play games with other in real time, whenever the client needs information, like loading a chat or a game, updating a profile, it sends a request to the server. The server is the backend of the app and is responsible for handling all the logic, processing the requests, communicating with the database where all user data, profiles and messages are store and. managing  the user authentication. When the server receives a request, it processes it and sends back the necessary data (JSON format).
 
-For messages in real time, the client and server maintain a continuous connection using WebSockets, which allows real-time updates without the need to refresh the page. This structure ensures that users can interact in real time while the server securely manages data and keeps everything synchronized between users.  
-  
-### What is a WebSocket?    
-A **WebSocket** is a communication protocol that open a continuous connection between a website or application and the server. Unlike Web request that need constant request updates, a WebSocket maintains an open connection that ensures new information being displayed immediately without requiring to reload the page enabling instant messages.  
+## 4.3. Client/server architecture Implementation
+
+In this message app project, the app utilizes a client/server architecture that separates the application into two parts that work together for ensure nice and easy user experience. The client is the part users interact with (whether through a web or mobile interface), where they can log in, edit their profile, send or receive messages  and play games with other in real time, whenever the client needs information, like loading a chat or a game, updating a profile, it sends a request to the server. The server is the backend of the app and is responsible for handling all the logic, processing the requests, communicating with the database where all user data, profiles and messages are store and. managing  the user authentication. When the server receives a request, it processes it and sends back the necessary data (JSON format).
+
+
+### Client/Server Communication:
+
+The communication between the client and the server occurs throught HTTP/HTTPS request and Websockets.
+HTTP/HTTPS are request and responses that used for logging in, updating profiles or registering. 
+For messages in real time, the client and server maintain a continuous connection using WebSockets, which allows real-time updates without the need to refresh the page. This structure ensures that users can interact in real time while the server securely manages data and keeps everything synchronized between users.   
+
+- What is a WebSocket?   
+
+A **WebSocket** is a communication protocol that open a continuous connection between a website or application and the server. Unlike Web request that need constant request updates, a WebSocket maintains an open connection that ensures new information being displayed immediately without requiring to reload the page enabling instant messages.
+
+Communication between Client and Server is demonstrated in below diagram:
+![WebSocket connection diagram](./images/image.png)
+*(Source: )*
+
+
+In this project we plan to use Socket.IO, a JavaScript library that offers all the benefits of WebSockets like low-latency, bidirectional and event-based communication between a client and a server, but also provides additional benefits such as support for broadcasting messages to multiple users simultaneously, automatic reconnection and simplified event handling.
+
+The connection can be established with different low-level transports:
+
+- HTTP long-polling: The connection will fall back to HTTP long-polling in case the WebSocket connection cannot be established.
+
+- WebSocket
+
+- WebTransport
+
+Socket.IO will automatically pick the best available option, depending on the capabilities of the browser and the network (some networks block WebSocket and/or WebTransport connections)
+
+*Sources:*
+
+*Socket.IO:*
+*(Source: https://socket.io/docs/v4/)*
+
+*How it Works?*
+*(Source: https://socket.io/get-started/chat)*
+
+*Chat Example:*
+*(Source: https://github.com/socketio/chat-example.git)*
+
+
+CAUTION:
+- Although Socket.IO indeed uses WebSocket for transport when possible, it adds additional metadata to each packet. That is why a WebSocket client will not be able to successfully connect to a Socket.IO server, and a Socket.IO client will not be able to connect to a plain WebSocket server either.
+- The Socket.IO library keeps an open TCP connection to the server, which may result in a high battery drain for the users. Use a dedicated messaging platform like FCM for this use case.
+
+### Data Distribution
+
+The Server is responsible for managing and distributing data to clients, when a user updates their profile or sends a message, the server processes and distributes this data to the relevant users.
+Lets say, when the user sends a message to group chat, the server will process and distribute that message to all the user in the group.
+
+### Authorization
+
+When the user logs in, the server checks that their username and password are in the stored records in the database, if they are valid the server creates a token id that identifies that user, this token is included in future request to know who's sending the requests and grant permision.
+
+### Distribution 
+
+The client focuses on user interaction like showing changes, displaying images and messages, handling inputs. While the server takes care of the heavy tasks like managing user data, proccesing the messages, controlling access.
+This distribution allows developers to update the server without changing the client interface.
+
+### Validation
+
+To ensure all the data sent between the client and the server is secure. 
+- The client side validation helps users to avoid mistakes like making sure required fields are filled or passwords are secure enought meeting the password security requirements.
+- The server validation ensures any data received is in the correct format and safe before being processed and stored in the database. Helping to prevent errors and invalid inputs. 
+
+# 5. Programming Paradigm
+
+This project will be using Object-Oriented Programming (OOP) as its primary paradigm. We have structured our project around using objects so this makes the most sense. For example: message and message log are separate leading to easily turing these two into objects (two separate classes both with different data and methods).
+
+```
+class MessageLog:
+    def __init___(self):
+        self.messages = []
+
+    def add_message(self, message):
+        self.messages.append(message)
+
+    def get_messages(self, message):
+        return messages
+```
+
+```
+class Message:
+    def __init___(self, sender, log, content):
+        self.sender = sender
+        self.log = log
+        self.content = content
+        self.time_sent = datetime.now()
+```
+
+With this we could very easily set these objects as vars to a user object, then call **add_message( new Message("some message"))** to add to a message chain.
+
+> Note: these examples don't take into account that to find and set data and relations, we will have to use some data-oriented programming to do this from a SQL database. This is covered in **Additional Paradigms**. The coding practice is all done using OOP thus is our main backend programming paradigm
+
+
+This will also make our system very scalable - as it would be very simple to add new objects to the project - while also keeping it very modular for easier debugging and more refined code. It also means that changing one object will have less impact of the rest of the projects code
+
+### Additional Paradigms:
+
+OOP is the primary paradigm, it does make sense to include other paradigms where useful.
+
+- Front end | Functional 
+
+The UI uses functional programming - using a mix of Javascript, Html and Css - to react to users clicks and hovers on the site.
+
+
+- Back end | Object-Oriented (OOP)
+
+Explained above
+
+- Database | Data-oriented programming (DOP)
+
+Data structured into the tables given in the below ERD into a SQL database:
+
+![ERD](./images/App_ERD.png)
+
 
 
 
